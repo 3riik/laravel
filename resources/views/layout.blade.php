@@ -8,6 +8,7 @@
 		<ul class="nav nav-pills">
 	 		<li ><a href="/register">Registrácia</a></li>
 	  		<li ><a href="/compare">Porovnať</a></li>
+	  		<li ><a href="https://github.com/3riik/laravel">GitHub</a></li>
 		</ul>
 		
 		@if (count($errors) > 0)
