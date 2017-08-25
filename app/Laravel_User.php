@@ -15,7 +15,7 @@ class Laravel_User extends Model
 				['name' => $user['name'], 'email' => $user['email'] ]
 			);
 
-  	DB::table('Laravel_hobbies')->insert(
+  	DB::table('laravel_hobbies')->insert(
   		[	'uid' => $uid, 
   			'swim' => $user['swim'],
   			'bicykel' => $user['bicykel'],
