@@ -25,47 +25,60 @@
 			  'placeholder' => 'Email')) !!}
 </div>
 
+<div class="form-group" >
+	<label class="radio">Plávanie:</label>
+	@for ($i = 1; $i<6; $i++)
+	
+	{!! Form::radio('swim', $i, false, ['id' => 'swim'.$i,]) !!} 
+	<label for="swim{{$i}}">
+	 {{$i}}
+	</label>
+	@endfor
+
+</div>
+<div class="form-group" style="">
+<label class="radio">Bicyklovanie:</label>
+	@for ($i = 1; $i<6; $i++)
+	
+	{!! Form::radio('bicykel', $i, false, ['id' => 'bicykel'.$i,]) !!} 
+	<label for="bicykel{{$i}}">
+	 {{$i}}
+	</label>
+	@endfor
+
+</div>
 <div class="form-group">
-<p>Plávanie:
+<label class="radio">Beh:</label>
 	@for ($i = 1; $i<6; $i++)
-	<label class="radio-inline">
-	{!! Form::radio('swim', $i) !!} {{$i}}
+	
+	{!! Form::radio('run', $i, false, ['id' => 'run'.$i,]) !!} 
+	<label for="run{{$i}}">
+	 {{$i}}
 	</label>
 	@endfor
-</p>
 
-<p>Bicyklovanie:
+</div>
+<div class="form-group">
+	<label class="radio">Turistika:</label>
 	@for ($i = 1; $i<6; $i++)
-	<label class="radio-inline">
-	{!! Form::radio('bicykel', $i) !!} {{$i}}
+	
+	{!! Form::radio('tourism', $i, false, ['id' => 'tourism'.$i,]) !!} <label for="tourism{{$i}}">
+	 {{$i}}
+	</label>
+	
+	@endfor
+
+</div>
+<div class="form-group">
+<label class="radio">Lezenie:</label>
+	@for ($i = 1; $i<6; $i++)
+	
+	{!! Form::radio('climbing', $i, false, ['id' => 'climbing'.$i,]) !!}
+	<label for="climbing{{$i}}">
+	 {{$i}}
 	</label>
 	@endfor
-</p>
 
-
-<p>Beh:
-	@for ($i = 1; $i<6; $i++)
-	<label class="radio-inline">
-	{!! Form::radio('run', $i) !!} {{$i}}
-	</label>
-	@endfor
-</p>
-
-<p>Turistika:
-	@for ($i = 1; $i<6; $i++)
-	<label class="radio-inline">
-	{!! Form::radio('tourism', $i) !!} {{$i}}
-	</label>
-	@endfor
-</p>
-
-<p>Lezenie:
-	@for ($i = 1; $i<6; $i++)
-	<label class="radio-inline">
-	{!! Form::radio('climbing', $i) !!} {{$i}}
-	</label>
-	@endfor
-</p>
 </div>
 
 <div class="form-group">
