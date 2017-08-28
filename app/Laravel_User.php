@@ -25,10 +25,12 @@ class Laravel_User extends Model
   	   ]);
   }
 
-  private function get_user_by_email( $email ) {
+
+  public function get_user_by_email( $email ) {
 
   	return DB::table('laravel_users')->where('email', $email)->first();
   }
+
 
   public function get_user_hobbies( $email ) {
 
