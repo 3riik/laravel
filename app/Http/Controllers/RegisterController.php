@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Laravel_User;
+use App\Laravel_Hobby;
 
 class RegisterController extends Controller{
 
@@ -31,19 +32,9 @@ class RegisterController extends Controller{
 			'tourism' 	=> 'required',
 			'climbing'	=> 'required',
 			]);
-
-		$user = array(
-			'name' 		=> $request->name, 
-			'email' 	=> $request->email,
-			'swim' 		=> $request->swim,
-			'bicykel' 	=> $request->bicykel,
-			'run' 		=> $request->run,
-			'tourism'	=> $request->tourism,
-			'climbing'	=> $request->climbing,
-			);
 		
-		$this->users->store_user($user);
-
+		$user = Laravel_User::create($request->all());
+		$user->hobby()->create($request->all());
 		return view('compare_form')->with('message_success','Registrácia prebehla úspešne');
 	}
 
@@ -69,7 +60,7 @@ class RegisterController extends Controller{
 		
 		
 		foreach ($all_other_hobbies as $hobbies ) {
-				$result['name'] = $this->users->get_user_name( $hobbies->uid );
+				$result['name'] = $this->users->get_user_name( $hobbies->user_id );
 
 				$sum = abs($current_hobbies->swim - $hobbies->swim) * 20;
 				$sum += abs($current_hobbies->bicykel - $hobbies->bicykel) * 20;
@@ -82,7 +73,7 @@ class RegisterController extends Controller{
 				
 			}	
 
-		return view('compare_result')->with('results', $results)->with('current_user', $this->users->get_user_name( $current_hobbies->uid ));
+		return view('compare_result')->with('results', $results)->with('current_user', $this->users->get_user_name( $current_hobbies->user_id ));
 
 	}
 
