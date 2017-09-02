@@ -6,8 +6,7 @@
 
 
 
-
-{!! Form::open(array('route' => 'register_store', 'class' => 'form')) !!}
+{!! Form::open(array('id'=>'register', 'class' => 'form')) !!}
 
 <div class="form-group">
 	{!! Form::label('Meno') !!}

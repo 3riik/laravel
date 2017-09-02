@@ -11,6 +11,8 @@
 	  		<li ><a href="https://github.com/3riik/laravel">GitHub</a></li>
 		</ul>
 		
+		<div id="ajaxResponse" class="alert alert-danger hidden"><ul> </ul> </div>
+
 		@if (count($errors) > 0)
    		<div class = "alert alert-danger">
      	 	<ul>
@@ -28,7 +30,8 @@
 			@yield('content')
 		</div>
 	</div>	
-		
+	<script src="{{ URL::asset('js/app.js') }}"></script>
+	<script src="{{ URL::asset('js/register-ajax.js') }}"></script>
 	</body>
 
 </html>

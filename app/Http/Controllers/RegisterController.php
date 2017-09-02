@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\HttpResponse;
 use App\Laravel_User;
 use App\Laravel_Hobby;
 
@@ -32,10 +34,25 @@ class RegisterController extends Controller{
 			'tourism' 	=> 'required',
 			'climbing'	=> 'required',
 			]);
-		
-		$user = Laravel_User::create($request->all());
-		$user->hobby()->create($request->all());
-		return view('compare_form')->with('message_success','Registrácia prebehla úspešne');
+
+			
+			$user = Laravel_User::create($request->all());
+
+			if(TRUE == $user && ($user->hobby()->create($request->all() ))) {
+				return response()->json(['responseText' => 'Registrácia úspešná']);
+			} else {
+				$user->delete();
+				return response()->json(['responseText' => 'Error creating user']);
+			}
+			
+		}
+
+						
+						
+	
+
+	public function show() {
+		return view('compare');
 	}
 
 	public function compare_form( Request $request ) {

@@ -22,3 +22,4 @@ Route::post('register', ['as' => 'register_store', 'uses' => 'RegisterController
 
 Route::get('compare', ['as' => 'compare', 'uses' => 'RegisterController@compare_form']);
 Route::post('compare', ['as' => 'compare_result', 'uses' => 'RegisterController@compare_result']);
+
